@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+:root {
+  --sidebar-bg: #1a3328;
+  --sidebar-hover: #243d2f;
+  --sidebar-active: #2d5a3e;
+  --sidebar-text: #d4e8dc;
+  --sidebar-muted: #7ba68a;
+  --accent-green: #1e6641;
+  --accent-green-hover: #174f33;
+  --bg-page: #f5f6f4;
+  --bg-white: #ffffff;
+  --border: #e5e7e4;
+  --text-primary: #1a1f1c;
+  --text-secondary: #5c6b62;
+  --text-muted: #8fa396;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f5f6f4;
+  color: #1a1f1c;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: rgba(30, 102, 65, 0.18);
+  color: #0b3b24;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c8d4cc;
+  border-radius: 99px;
+}
+
+/* Leaflet map container */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Keyframe Animations for Landing Page */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.5deg);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes blobMorph {
+  0%, 100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  33% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  66% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatReverse 6s ease-in-out infinite 1s;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+.animate-blob-morph {
+  animation: blobMorph 12s ease-in-out infinite alternate;
+}
+
+/* Greensign / Claymorphic UI Style Utilities */
+.clay-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  box-shadow:
+    0 10px 24px -4px rgba(26, 51, 40, 0.05),
+    0 4px 10px -2px rgba(26, 51, 40, 0.03),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -1.5px 3px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(226, 229, 225, 0.9);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-card:hover {
+  box-shadow:
+    0 16px 32px -4px rgba(26, 51, 40, 0.09),
+    0 6px 14px -2px rgba(26, 51, 40, 0.04),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -1.5px 3px rgba(0, 0, 0, 0.025);
+  transform: translateY(-2px);
+}
+
+/* Soft Clay Pastel Cards */
+.clay-card-blue {
+  background: linear-gradient(145deg, #f0f7ff 0%, #e5f1fd 100%);
+  border-radius: 1.25rem;
+  border: 1px solid #d4e7fc;
+  box-shadow:
+    0 10px 22px -3px rgba(59, 130, 246, 0.12),
+    0 4px 8px -2px rgba(59, 130, 246, 0.06),
+    inset 0 2px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(37, 99, 235, 0.05);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-card-green {
+  background: linear-gradient(145deg, #f0fdf4 0%, #e3f9eb 100%);
+  border-radius: 1.25rem;
+  border: 1px solid #d1fae5;
+  box-shadow:
+    0 10px 22px -3px rgba(22, 163, 74, 0.12),
+    0 4px 8px -2px rgba(22, 163, 74, 0.06),
+    inset 0 2px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(22, 163, 74, 0.05);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-card-amber {
+  background: linear-gradient(145deg, #fefce8 0%, #fef7cd 100%);
+  border-radius: 1.25rem;
+  border: 1px solid #fef08a;
+  box-shadow:
+    0 10px 22px -3px rgba(217, 119, 6, 0.1),
+    0 4px 8px -2px rgba(217, 119, 6, 0.05),
+    inset 0 2px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(217, 119, 6, 0.05);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clay-card-purple {
+  background: linear-gradient(145deg, #faf5ff 0%, #f1e4fe 100%);
+  border-radius: 1.25rem;
+  border: 1px solid #ebd5fc;
+  box-shadow:
+    0 10px 22px -3px rgba(147, 51, 234, 0.1),
+    0 4px 8px -2px rgba(147, 51, 234, 0.05),
+    inset 0 2px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(147, 51, 234, 0.05);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}

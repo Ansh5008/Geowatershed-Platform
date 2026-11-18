@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-multipart
+numpy
+pillow
+rasterio
+geopandas
+shapely
+reportlab
+# add later, when you start the AI step:
+# torch
+# torchvision
