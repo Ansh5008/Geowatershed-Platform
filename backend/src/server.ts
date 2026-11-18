@@ -18,6 +18,24 @@ app.use(express.json());
 const uploadsDir = path.resolve(process.cwd(), "uploads");
 app.use("/uploads", express.static(uploadsDir));
 
+// Root welcoming route
+app.get("/", (_req, res) => {
+  res.json({
+    status: "online",
+    service: "GeoWatershed Spatial Intelligence API Service",
+    version: "2.5.0",
+    docs: {
+      health: "/health",
+      watersheds: "/watersheds",
+      images: "/images",
+      layers: "/layers",
+      reports: "/reports",
+      analyze: "/analyze",
+    },
+    timestamp: new Date().toISOString(),
+  });
+});
+
 app.get("/health", (_req, res) => {
   res.json({
     status: "ok",
